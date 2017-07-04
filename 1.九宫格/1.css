@@ -1,0 +1,20 @@
+.wrap{
+			width: 90vw;
+			height: 90vw;
+			margin: auto;
+			padding-top: 3%;
+		}
+		.wrap div{
+			width: 30%;
+			height: 30%;
+			float: left;
+			background: #FFA600;
+			margin:0 5% 5% 0;
+			border-radius: 10%;
+		}
+		div:nth-child(3),div:nth-child(6),div:nth-child(9){
+			margin-right: 0;
+		}
+		div:nth-child(7),div:nth-child(8),div:nth-child(9){
+			margin-bottom: 0;
+		}
