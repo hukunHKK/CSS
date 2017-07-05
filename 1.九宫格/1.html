@@ -7,17 +7,51 @@
 </head>
 <body>
 	<div class="wrap">
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
+		<div id="1"></div>
+		<div id="2"></div>
+		<div id="3"></div>
+		<div id="4"></div>
+		<div id="5"></div>
+		<div id="6"></div>
+		<div id="7"></div>
+		<div id="8"></div>
+		<div id="9"></div>
 	</div>
-	<div style="width: 20%;padding: 10% 0;background:green;">
+	<div class="start clear" onclick="start()">开始闪</div>
+	<div class="start" onclick="stop()">结束闪</div>
+	<script>
+	function start(){
+		int = setInterval(blink,1500);
+	}
+	function stop(){
+		clearInterval(int)
+		for(var n in arr){
+			document.getElementById(n).style.background = '#FFA600';
+		}
+	}
+	var arr = {};
+	function blink(){
+		for(var n in arr){
+			document.getElementById(n).style.background = '#FFA600';
+		}
+		arr = {};
+		for(var i=0;i<3;i++){
+			var id = Math.floor(Math.random()*9+1);
+			if(arr[id] !== true){
+				document.getElementById(id).style.background = getColor();
+				i++;
+				arr[id] = true;
+			}
+			i--;
+		}
+	}
+	function getColor(){
+		return '#'+(function fn(color){
+			return (color+='0123456789abcdef'[Math.floor(Math.random()*16)])&&(color.length==6)?color:fn(color);
+		})('')
+	}
+	</script>
+	<!-- <div style="width: 20%;padding: 10% 0;background:green;">
 		要想保证高度和宽度一样，此时通过设置padding也可以，当padding为百分比时，其是基于父元素的宽度的。margin也是一样的。
 	</div>
 	<p>
@@ -29,6 +63,6 @@
 		vmax:相对于视口的高度和宽度中较大的一个，其被均分为100单位的vmax。
 		vmin:相对于视口的高度和宽度中较小的一个，其被均分为100单位的vmin。
 		1in = 2.54cm = 25.4 mm = 101.6q = 72pt = 6pc = 96px
-	</p>
+	</p> -->
 </body>
 </html>
